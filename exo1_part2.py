@@ -1,19 +1,13 @@
 with open("input.txt", "r") as f: # Permet de lire un fichier texte en lecture
     lines = f.readlines() # récupère la liste de toutes les lignes contenues dans le fichier
-    tempA = []
+    partie_de_droite=[]
+    partie_de_gauche=[]
     res=0
-    tempB = []
     for line in lines: # Pour chaque ligne de la liste "lines"
         a, b = line.split() # split les données comme ce qu'on a vu sur les chaînes de caractères
         # à vous de jouer :)
-        tempA.append(a)
-        tempB.append(b)
-    def est_min(a,b):
-        if a<=b:
-            return True
-        return False
-    
-
+        partie_de_droite.append(a)
+        partie_de_gauche.append(b)
     
     def nb_occurences(chiffre,liste):
         cp=0
@@ -27,17 +21,30 @@ with open("input.txt", "r") as f: # Permet de lire un fichier texte en lecture
         for i in (string):
             res.append(int(i))
         return res
-    print (int((crealiste_car(tempA[1])[0])))
     
-    for j in tempA:
-        for i in range(len(j)):
-            #print(i)
-            temp1=crealiste_car(tempA[i])
-            #print(temp1)
-            temp2=crealiste_car(tempB[i])
+    res=0
+    for i in range(len(partie_de_gauche)):
+
+        liste_int_partie_droite=crealiste_car(partie_de_droite[i])
+        liste_int_partie_gauche=crealiste_car(partie_de_gauche[i])
+        
+        for element in liste_int_partie_droite:
+            res+=(nb_occurences(element,liste_int_partie_gauche)*element)
+        print(res)
+    
+    """for j in partie_de_gauche:
+        for i in range(len(partie_de_droite)-1):
+            
+            
+            
+            
+            
             #temp3=nb_occurences(,)
-            res+=((nb_occurences(temp1[i],temp2))*temp1[i])
-    print(res)
+            caractere_temp=liste_int_partie_droite[i]
+            temp=nb_occurences(caractere_temp,liste_int_partie_gauche)
+            
+            res+=(temp*liste_int_partie_droite[i])
+    print(res)"""
 
 
 
