@@ -23,28 +23,15 @@ with open("input.txt", "r") as f: # Permet de lire un fichier texte en lecture
         return res
     
     res=0
-    for i in range(len(partie_de_gauche)):
+    for i in range(len(partie_de_droite)):
 
         liste_int_partie_droite=crealiste_car(partie_de_droite[i])
         liste_int_partie_gauche=crealiste_car(partie_de_gauche[i])
         
-        for element in liste_int_partie_droite:
-            res+=(nb_occurences(element,liste_int_partie_gauche)*element)
+        for element in liste_int_partie_gauche:
+            res+=(nb_occurences(element,liste_int_partie_droite)*element)
         print(res)
     
-    """for j in partie_de_gauche:
-        for i in range(len(partie_de_droite)-1):
-            
-            
-            
-            
-            
-            #temp3=nb_occurences(,)
-            caractere_temp=liste_int_partie_droite[i]
-            temp=nb_occurences(caractere_temp,liste_int_partie_gauche)
-            
-            res+=(temp*liste_int_partie_droite[i])
-    print(res)"""
-
+    
 
 
